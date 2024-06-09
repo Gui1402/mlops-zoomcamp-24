@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 import pickle
 import os
 import mlflow
+from sklearn.metrics import mean_squared_error
+
 
 
 if 'data_exporter' not in globals():
@@ -27,7 +29,8 @@ def export_data(data, *args, **kwargs):
     y = data['duration']
     X_train, X_test, y_train, y_test = train_test_split(X, y)
     X_train = X_train.to_dict(orient='records')
-    with mlflow.start_run():
+    X_test = X_test.to_dict(orient='records')
+    with mlflow.start_run() as run:
         vectorizer = DictVectorizer(sparse=True)
         feature_matrix = vectorizer.fit_transform(X_train)
         feature_matrix_test = vectorizer.transform(X_test)
@@ -38,7 +41,12 @@ def export_data(data, *args, **kwargs):
         mse = mean_squared_error(y_test, predictions)
         ######## Loging artifacts  ######################
         mlflow.sklearn.log_model(model, "lr_model")
-        mlflow.sklearn.log_model(vectorizer, "vectorizer")
+
+        with open("vectorizer.pkl", "wb") as f:
+            pickle.dump(vectorizer, f)
+        mlflow.log_artifact("vectorizer.pkl")
+
+        #mlflow.sklearn.log(vectorizer, "vectorizer")
         mlflow.log_param("intercept", model.intercept_)
         mlflow.log_param("coefficients", model.coef_)
         mlflow.log_metric("mse", mse)

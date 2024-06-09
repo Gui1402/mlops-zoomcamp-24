@@ -15,7 +15,7 @@ git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
 
 ### Q1: 
 
-R: v0.9.70
+R: v0.9.71
 
 ### Q2:
 R: 55
@@ -28,4 +28,7 @@ R: 3316216
 
 ### Q5:
 R: 24.837582204977835
+
+### Q6:
+R: 4468
 
