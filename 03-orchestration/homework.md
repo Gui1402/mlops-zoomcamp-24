@@ -1,3 +1,17 @@
+## Quick start
+
+Use the following command to clone mage repo
+```bash
+git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
+&& cp docker-compose.yml mage-quickstart/ \
+&& cp -r mlflow mage-quickstart/ \
+&& cd mage-quickstart \
+&& cp dev.env .env && rm dev.env \
+&& docker compose up
+```
+
+
+
 ### Q1: 
 
 R: v0.9.70
