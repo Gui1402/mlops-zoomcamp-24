@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 Anaconda*.sh
 03-orchestration/mage-quickstart/*
+!03-orchestration/mage-quickstart/your_first_project/
