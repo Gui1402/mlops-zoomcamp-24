@@ -5,6 +5,7 @@ Use the following command to clone mage repo
 git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
 && cp docker-compose.yml mage-quickstart/ \
 && cp -r mlflow mage-quickstart/ \
+&& cp -rf requirements.txt mage-quickstart/ \
 && cd mage-quickstart \
 && cp dev.env .env && rm dev.env \
 && docker compose up
