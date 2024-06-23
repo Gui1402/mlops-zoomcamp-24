@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "scripts"
+version = "0.1.0"
+description = ""
+authors = ["Guilherme <guilherme.sebplopes@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.2"
+evidently = "^0.4.28"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
